@@ -36,7 +36,7 @@ resource "aws_alb" "app_lb" {
     internal = false
     load_balancer_type = "application"
     security_groups = [aws_security_group.web_sg.id]
-    subnets = data.aws_subnets.default.id 
+    subnets = data.aws_subnet.default.id 
 }
 resource "aws_lb_target_group" "app_tg" {
     name = "app-tg"
