@@ -2,7 +2,7 @@
 data "aws_vpc" "default" {
     default = true
 }
-data "aws_subnet" "default" {
+data "aws_subnets" "default" {
     filter {
         name = "vpc-id"
         values = [data.aws_vpc.default.id]
@@ -74,7 +74,7 @@ resource "aws_launch_template" "example" {
                 EOF
     )
 }
-resource "aws_auto_scaling_group" "asg" {
+resource "aws_autoscaling_group" "asg" {
     name = "asg"
     max_size = 3
     min_size = 2
