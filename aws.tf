@@ -6,7 +6,7 @@ provider "aws" {
 resource "aws_instance" "webserver" {
     ami = var.ami_webserver
     instance_type = var.webserver_type
-    vpc_security_group_ids = ["sg-0c78535db3865697a", aws_security_group.web_sg.id , data.aws_security_group.my_web_sg.id]
+    vpc_security_group_ids = ["sg-0c78535db3865697a", aws_security_group.m_web_sg.id , data.aws_security_group.my_web_sg.id]
     disable_api_termination = var.webserver_termination
     count = var.webserver_copy
     
@@ -22,7 +22,7 @@ resource "aws_instance" "webserver" {
                 echo "<h1>Welcome to Terraform Web Server</h1>" > /var/www/html/index.html
                 EOF
     }
-    resource "aws_security_group" "web_sg" {
+    resource "aws_security_group" "m_web_sg" {
 
         ingress {
             from_port = "80"
