@@ -13,7 +13,7 @@ variable "webserver_termination" {
     default = true
   
 }
-#variable "webserver_copy" {
-    #type = number   
-    #default = 2
-#}  
+variable "webserver_copy" {
+    type = number   
+    default = 2
+}  
