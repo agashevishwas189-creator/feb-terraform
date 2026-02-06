@@ -2,7 +2,7 @@
 data "aws_vpc" "default" {
     default = true
 }
-data "aws_subnet" "default" {
+data "aws_subnets" "default" {
     filter {
         name = "vpc-id"
         values = [data.aws_vpc.default.id]
@@ -36,7 +36,7 @@ resource "aws_alb" "app_lb" {
     internal = false
     load_balancer_type = "application"
     security_groups = [aws_security_group.web_sg.id]
-    subnets = data.aws_subnet.default.id 
+    subnets = data.aws_subnets.default.id 
 }
 resource "aws_lb_target_group" "app_tg" {
     name = "app-tg"
