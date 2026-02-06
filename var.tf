@@ -16,5 +16,4 @@ variable "webserver_termination" {
 #variable "webserver_copy" {
     #type = number   
     #default = 2
-  
-}
+#}  

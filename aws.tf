@@ -8,7 +8,7 @@ resource "aws_instance" "webserver" {
     instance_type = var.webserver_type
     vpc_security_group_ids = ["sg-0c78535db3865697a", aws_security_group.web_sg.id]
     disable_api_termination = var.webserver_termination
-    count = var.webserver_copy
+    #count = var.webserver_copy
     
     tags = {
         Name = "webserver"
@@ -43,4 +43,5 @@ resource "aws_instance" "webserver" {
             protocol = "-1"
             cidr_blocks = ["0.0.0.0/0"]
         }
+        
     }    
